@@ -9,7 +9,7 @@ Coded Aperture Snapshot Spectral Imaging (CASSI) multiplexes 3D Hyperspectral Im
 # Architecture
 
 <div align=center>
-<img src="./figures/ADRNN.png" width = "2079" height = "974" alt="">
+<img src="./figures/ADRNN.png" width = "1040" height = "487" alt="">
 </div>
 
 The proposed method is formulated as a nested optimization problem, consisting of an outer optimization loop that alternates between solving the CASSI subproblem and the PAN subproblem. Both subproblems are solved using optimization techniques and share a joint prior. To simplify the process, the inner optimization iteration is set to 1, transforming the proposed method  into an alternating solution approach for the CASSI data subproblem, the PAN data subproblem, and the joint prior subproblem.
@@ -17,7 +17,7 @@ The proposed method is formulated as a nested optimization problem, consisting o
 By unfolding the proposed optimization method into a DUN and convert the DUN into an RNN by sharing parameters across stages, the proposed ADRNN is obtained. Furthermore, we propose a Cross  Spectral Transformer (XST) to solve the joint prior subproblem, effectively exploiting the correlation between the PAN image and the compressed HSI.
 
 <div align=center>
-<img src="./figures/XST.png" width = "6021" height = "6396" alt="">
+<img src="./figures/XST.png" width = "1000" height = "1066" alt="">
 </div>
 
 The overall architecture of XST. (a) The diagram of XST. (b) S-GQAB is composed of two layer normalizations (LNs), a Spectral Grouped-Query Attention (S-GQA), and a Gated-DConv Feedforward Network (GDFN). (c) X-GQAB consists of two LNs, a Cross Grouped-Query Attention (X-GQA), and a GDFN. (d) The diagram of GDFN. (e) The diagram of S/X-GQA.
