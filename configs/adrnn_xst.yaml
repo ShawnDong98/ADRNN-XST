@@ -1,0 +1,41 @@
+EXPERIMENTAL_TYPE: "simulation"
+
+DATASETS:
+  STEP: 2
+  WAVE_LENS: 28
+  MASK_TYPE: "mask_3d_shift"
+  WITH_PAN: True
+
+  TRAIN:
+    ITERATION: 1000
+    CROP_SIZE: [256, 256]
+    WITH_NOISE: False
+    PATHS:
+      - "./datasets/CSI/cave_1024_28"
+    MASK_PATH: "./datasets/CSI/TSA_simu_data/mask_3d_shift.mat"
+    RANDOM_MASK: False
+  VAL:
+    PATH: "./datasets/CSI/TSA_simu_data/Truth/"
+    MASK_PATH: "./datasets/CSI/TSA_simu_data/mask_3d_shift.mat"
+
+DATALOADER:
+  BATCH_SIZE: 1
+  NUM_WORKERS: 8
+
+MODEL:
+  TYPE: "ADRNN_XST"
+  ADRNN_XST:
+    STAGES: 9
+
+LOSSES:
+  L1_LOSS: True
+  L2_LOSS: False
+  TV_LOSS: False
+
+OPTIMIZER:
+  LR: 3e-4
+
+DEBUG: False
+OUTPUT_DIR: "./exp/ADRNN_XST_simu/"
+RESUME_CKPT_PATH: ""
+PRETRAINED_CKPT_PATH: "./checkpoints/adrnn_xst.pth"
