@@ -75,7 +75,7 @@ Download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4io
 We use the CAVE dataset (cave_1024_28) as the training s
 et and 10 scenes from KAIST (TSA_simu_data) for testing in simulation experiments.
 
-### Simulation Dataset
+### Real Dataset
 
 The real indoor and outdoor hyperspectral images (HSIs), panchromatic (PAN) images, and reference HSIs datasets are publicly accessible via the [Baidu Disk](https://pan.baidu.com/s/16p_FUAiUDRUrOY5bND2DZQ?pwd=xst1) and [OneDrive Disk](https://stuxidianeducn-my.sharepoint.com/:f:/g/personal/shawndong98_stu_xidian_edu_cn/EoXZkC7fskNMlBRSOWU9u5oBUmz0-gxWzNDbKliLyzetug?e=p3re3V).
  
