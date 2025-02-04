@@ -1,12 +1,12 @@
-# ADRNN-XST: Alternating Direction Recurrent Neural Network with a Cross Spectral Attention Prior for Dual-Camera Compressive Hyperspectral Imaging
+## ADRNN-XST: Alternating Direction Recurrent Neural Network with a Cross Spectral Attention Prior for Dual-Camera Compressive Hyperspectral Imaging
 
 This repo is the implementation of the paper "Alternating Direction Recurrent Neural Network with a Cross Spectral Attention Prior for Dual-Camera Compressive Hyperspectral Imaging".
 
-# Abstract
+## Abstract
 
 Coded Aperture Snapshot Spectral Imaging (CASSI) multiplexes 3D Hyperspectral Images (HSIs) into a 2D sensor to capture dynamic spectral scenes, which, however, sacrifices the spatial resolution. Dual-Camera Compressive Hyperspectral Imaging (DCCHI) enhances CASSI by incorporating a Panchromatic (PAN) camera to compensate for the loss of spatial information in CASSI. However, the dual-camera structure of DCCHI disrupts the diagonal property of the product of the sensing matrix and its transpose,  hindering the application of model-based methods and Deep Unfolding Networks (DUNs) that rely on a closed-form solution, thereby compromising their performance. To address this issue, we propose an Alternating Direction DUN, named ADRNN, which decouples the imaging model of DCCHI into a CASSI subproblem and a PAN subproblem. The ADRNN alternately solves data terms analytically and a joint prior term in these subproblems. Additionally, we propose a Cross Spectral Transformer (XST) to exploit the joint prior. The XST effectively models the correlation between the compressed HSI and the PAN image with advanced cross-attention mechanism and Grouped-Query Attention (GQA). Furthermore, we built a prototype DCCHI system and captured large-scale indoor and outdoor scenes for future academic research. Extensive experiments on both simulation and real datasets demonstrate that the proposed method achieves state-of-the-art (SOTA) performance.
 
-# Architecture
+## Architecture
 
 <div align=center>
 <img src="./figures/ADRNN.png" width = "1040" height = "300" alt="">
@@ -22,7 +22,9 @@ By unfolding the proposed optimization method into a DUN and convert the DUN int
 
 The overall architecture of XST. (a) The diagram of XST. (b) S-GQAB is composed of two layer normalizations (LNs), a Spectral Grouped-Query Attention (S-GQA), and a Gated-DConv Feedforward Network (GDFN). (c) X-GQAB consists of two LNs, a Cross Grouped-Query Attention (X-GQA), and a GDFN. (d) The diagram of GDFN. (e) The diagram of S/X-GQA.
 
-# Dataset 
+## Dataset 
+
+### Simulation Dataset
 
 Download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4ioyNQ), code: `fo0q` | [One Drive](https://bupteducn-my.sharepoint.com/:f:/g/personal/mengziyi_bupt_edu_cn/EmNAsycFKNNNgHfV9Kib4osB7OD4OSu-Gu6Qnyy5PweG0A?e=5NrM6S)), CAVE_512_28 ([Baidu Disk](https://pan.baidu.com/s/1ue26weBAbn61a7hyT9CDkg), code: `ixoe` | [One Drive](https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/lin-j21_mails_tsinghua_edu_cn/EjhS1U_F7I1PjjjtjKNtUF8BJdsqZ6BSMag_grUfzsTABA?e=sOpwm4)), KAIST_CVPR2021 ([Baidu Disk](https://pan.baidu.com/s/1LfPqGe0R_tuQjCXC_fALZA), code: `5mmn` | [One Drive](https://mailstsinghuaeducn-my.sharepoint.com/:f:/g/personal/lin-j21_mails_tsinghua_edu_cn/EkA4B4GU8AdDu0ZkKXdewPwBd64adYGsMPB8PNCuYnpGlA?e=VFb3xP)), TSA_simu_data ([Baidu Disk](https://pan.baidu.com/s/1LI9tMaSprtxT8PiAG1oETA), code: `efu8` | [One Drive](https://1drv.ms/u/s!Au_cHqZBKiu2gYFDwE-7z1fzeWCRDA?e=ofvwrD)), TSA_real_data ([Baidu Disk](https://pan.baidu.com/s/1RoOb1CKsUPFu0r01tRi5Bg), code: `eaqe` | [One Drive](https://1drv.ms/u/s!Au_cHqZBKiu2gYFTpCwLdTi_eSw6ww?e=uiEToT)), and then put them into the corresponding folders of `datasets/` and recollect them as the following form:
 
@@ -73,10 +75,12 @@ Download cave_1024_28 ([Baidu Disk](https://pan.baidu.com/s/1X_uXxgyO-mslnCTn4io
 We use the CAVE dataset (cave_1024_28) as the training s
 et and 10 scenes from KAIST (TSA_simu_data) for testing in simulation experiments.
 
-The registered compressed HSIs, PAN images, and reference HSIs are available in [Baidu Disk](https://pan.baidu.com/s/16p_FUAiUDRUrOY5bND2DZQ?pwd=xst1), code: `xst1` and [OneDrive Disk]().
+### Simulation Dataset
+
+The real indoor and outdoor hyperspectral images (HSIs), panchromatic (PAN) images, and reference HSIs datasets are publicly accessible via the [Baidu Disk](https://pan.baidu.com/s/16p_FUAiUDRUrOY5bND2DZQ?pwd=xst1) and [OneDrive Disk](https://stuxidianeducn-my.sharepoint.com/:f:/g/personal/shawndong98_stu_xidian_edu_cn/EoXZkC7fskNMlBRSOWU9u5oBUmz0-gxWzNDbKliLyzetug?e=p3re3V).
  
 
-### Training
+## Training
 
 ```
 cd ADRNN-XST/
@@ -86,7 +90,7 @@ bash ./scripts/train_adrnn_xst.sh
 
 The training log, trained model, and reconstrcuted HSI will be available in `./exp/` .
 
-### Testing
+## Testing
 
 Place the pretrained model to `./checkpoints/`
 
@@ -108,8 +112,6 @@ Run cal_quality_assessment.m
 to calculate the PSNR and SSIM of the reconstructed HSIs.
 
 
-
-
 ## Acknowledgements
 
 Our code is based on following codes, thanks for their generous open source:
@@ -122,7 +124,7 @@ Our code is based on following codes, thanks for their generous open source:
 - [https://github.com/facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)
 
 
-# Citation
+## Citation
 
 If this code helps you, please consider citing our works:
 
