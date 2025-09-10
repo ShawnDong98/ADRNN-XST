@@ -4,12 +4,13 @@ This repo is the implementation of the paper "Alternating Direction Recurrent Ne
 
 ## Abstract
 
-Coded Aperture Snapshot Spectral Imaging (CASSI) multiplexes 3D Hyperspectral Images (HSIs) into a 2D sensor to capture dynamic spectral scenes, which, however, sacrifices the spatial resolution. Dual-Camera Compressive Hyperspectral Imaging (DCCHI) enhances CASSI by incorporating a Panchromatic (PAN) camera to compensate for the loss of spatial information in CASSI. However, the dual-camera structure of DCCHI disrupts the diagonal property of the product of the sensing matrix and its transpose,  hindering the application of model-based methods and Deep Unfolding Networks (DUNs) that rely on a closed-form solution, thereby compromising their performance. To address this issue, we propose an Alternating Direction DUN, named ADRNN, which decouples the imaging model of DCCHI into a CASSI subproblem and a PAN subproblem. The ADRNN alternately solves data terms analytically and a joint prior term in these subproblems. Additionally, we propose a Cross Spectral Transformer (XST) to exploit the joint prior. The XST effectively models the correlation between the compressed HSI and the PAN image with advanced cross-attention mechanism and Grouped-Query Attention (GQA). Furthermore, we built a prototype DCCHI system and captured large-scale indoor and outdoor scenes for future academic research. Extensive experiments on both simulation and real datasets demonstrate that the proposed method achieves state-of-the-art (SOTA) performance.
+Coded Aperture Snapshot Spectral Imaging (CASSI) multiplexes 3D Hyperspectral Images (HSIs) into a 2D sensor to capture dynamic spectral scenes, which, however, sacrifices the spatial information. Dual-Camera Compressive Hyperspectral Imaging (DCCHI) enhances CASSI by incorporating a Panchromatic (PAN) camera to compensate for the loss of spatial information in CASSI. However, the dual-camera structure of DCCHI disrupts the diagonal property of the product of the sensing matrix and its transpose, making it difficult to efficiently and accurately solve the data subproblem in closed-form and thereby hindering the application of model-based methods and Deep Unfolding Networks (DUNs) that rely on such a closed-form solution. To address this issue, we propose an Alternating Direction DUN, named ADRNN, which decouples the imaging model of DCCHI into a CASSI subproblem and a PAN subproblem. The ADRNN alternately solves data terms analytically and a joint prior term in these subproblems. Additionally, we propose a Cross Spectral Transformer (XST) to exploit the joint prior. The XST utilizes cross spectral attention to exploit the correlation between the compressed HSI and the PAN image, and incorporates Grouped-Query Attention (GQA) to alleviate the burden of parameters and computational cost brought by impartially treating the compressed HSI and the PAN image. Furthermore, we built a real DCCHI system and captured large-scale indoor and outdoor scenes for future academic research. Extensive experiments on both simulation and real datasets demonstrate that the proposed method achieves state-of-the-art (SOTA) performance. 
+
 
 ## Architecture
 
 <div align=center>
-<img src="./figures/ADRNN.png" width = "1040" height = "300" alt="">
+<img src="./figures/ADRNN.png" width = "1040" height = "500" alt="">
 </div>
 
 The proposed method is formulated as a nested optimization problem, consisting of an outer optimization loop that alternates between solving the CASSI subproblem and the PAN subproblem. Both subproblems are solved using optimization techniques and share a joint prior. To simplify the process, the inner optimization iteration is set to 1, transforming the proposed method  into an alternating solution approach for the CASSI data subproblem, the PAN data subproblem, and the joint prior subproblem.
@@ -17,7 +18,7 @@ The proposed method is formulated as a nested optimization problem, consisting o
 By unfolding the proposed optimization method into a DUN and convert the DUN into an RNN by sharing parameters across stages, the proposed ADRNN is obtained. Furthermore, we propose a Cross  Spectral Transformer (XST) to solve the joint prior subproblem, effectively exploiting the correlation between the PAN image and the compressed HSI.
 
 <div align=center>
-<img src="./figures/XST.png" width = "1000" height = "800" alt="">
+<img src="./figures/XST.png" width = "1000" height = "900" alt="">
 </div>
 
 The overall architecture of XST. (a) The diagram of XST. (b) S-GQAB is composed of two layer normalizations (LNs), a Spectral Grouped-Query Attention (S-GQA), and a Gated-DConv Feedforward Network (GDFN). (c) X-GQAB consists of two LNs, a Cross Grouped-Query Attention (X-GQA), and a GDFN. (d) The diagram of GDFN. (e) The diagram of S/X-GQA.
@@ -129,10 +130,22 @@ Our code is based on following codes, thanks for their generous open source:
 If this code helps you, please consider citing our works:
 
 ```
+@article{adrnn_xst,
+  author={Dong, Yubo and Gao, Dahua and Liu, Danhua and Liu, Yanli and Shi, Guangming},
+  journal={IEEE Transactions on Image Processing}, 
+  title={Alternating Direction Unfolding With a Cross Spectral Attention Prior for Dual-Camera Compressive Hyperspectral Imaging}, 
+  year={2025},
+  volume={34},
+  number={},
+  pages={5325-5340},
+}
+
 @article{dernn_lnlt,
   title={Degradation estimation recurrent neural network with local and non-local priors for compressive spectral imaging},
   author={Dong, Yubo and Gao, Dahua and Li, Yuyan and Shi, Guangming and Liu, Danhua},
   journal={IEEE Transactions on Geoscience and Remote Sensing},
+  volume={62},
+  pages={1--15},
   year={2024},
   publisher={IEEE}
 }
