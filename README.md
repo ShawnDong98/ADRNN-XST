@@ -121,10 +121,10 @@ The real-world indoor and outdoor results (and their visualizations as shown in 
 
 |Scene|Method1|Method2|Method3|Method4|Method5|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|Indoor|[TwIST](https://pan.baidu.com/s/1pblBcGOIsu18mpJ02FkL_A?pwd=5edf)|[GAP-TV](https://pan.baidu.com/s/1jJd7QiJWRJ9s6RlM18Kdew?pwd=1fia)|[MST](https://pan.baidu.com/s/1MKgOqTCAaxRXm8VcTxcSzA?pwd=s4it)|[DAUHST](https://pan.baidu.com/s/1rPLdF0FvaML-hpiMApo-gw?pwd=44u5)|[ADRNN-XST](https://pan.baidu.com/s/1-X-pBGnp_6NcBcFY0G5d2A?pwd=r8qm)|
-|Outdoor|[TwIST](https://pan.baidu.com/s/1gxFJTQ5nHDEwiuV0tYDVEw?pwd=ctr4)|[GAP-TV](https://pan.baidu.com/s/150s8doiqmu5DhmqHsCws9w?pwd=kwfu)|[L-Net](https://pan.baidu.com/s/13nZy-iOZGuGsr0BpgsVETw?pwd=59fq)|[RDLUF-Mix$S^2$](https://pan.baidu.com/s/1BToCmRNY0Ao3iuMgd1bjCw?pwd=8rxu)|[ADRNN-XST](https://pan.baidu.com/s/1EIN8vo_fyqN7FvdHQF7fLw?pwd=wa4v)|
+|Indoor Scene 4|[TwIST](https://pan.baidu.com/s/1pblBcGOIsu18mpJ02FkL_A?pwd=5edf)|[GAP-TV](https://pan.baidu.com/s/1jJd7QiJWRJ9s6RlM18Kdew?pwd=1fia)|[MST](https://pan.baidu.com/s/1MKgOqTCAaxRXm8VcTxcSzA?pwd=s4it)|[DAUHST](https://pan.baidu.com/s/1rPLdF0FvaML-hpiMApo-gw?pwd=44u5)|[ADRNN-XST](https://pan.baidu.com/s/1-X-pBGnp_6NcBcFY0G5d2A?pwd=r8qm)|
+|Outdoor Scene 1|[TwIST](https://pan.baidu.com/s/1gxFJTQ5nHDEwiuV0tYDVEw?pwd=ctr4)|[GAP-TV](https://pan.baidu.com/s/150s8doiqmu5DhmqHsCws9w?pwd=kwfu)|[L-Net](https://pan.baidu.com/s/13nZy-iOZGuGsr0BpgsVETw?pwd=59fq)|[RDLUF-Mix$S^2$](https://pan.baidu.com/s/1BToCmRNY0Ao3iuMgd1bjCw?pwd=8rxu)|[ADRNN-XST](https://pan.baidu.com/s/1EIN8vo_fyqN7FvdHQF7fLw?pwd=wa4v)|
 
-Note: This repository contains an early version of our code. The real-world results were not trained using this codebase. The specific implementation will be released in a separate project as part of our future work. 
+Note: This repository contains an early version of our code, and the real-world results were not trained using this codebase; the specific implementation will be released in a separate project as part of our future work. 
 
 
 ## Acknowledgements
